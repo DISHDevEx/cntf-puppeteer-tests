@@ -102,8 +102,9 @@ puppeteer-cleanup:
   parallel:
     matrix:
       - SCRIPT: 
-          - youtube-search
-          - amazon-search
+          # - youtube-search
+          # - amazon-search
           - devtools-search
   rules:
-    - when: manual
+    - when: always
+    
