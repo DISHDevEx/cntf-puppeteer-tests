@@ -105,4 +105,4 @@ puppeteer-cleanup:
           - amazon-search
           - devtools-search
   rules:
-    - when: always
+    - when: manual
