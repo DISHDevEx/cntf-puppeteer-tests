@@ -49,6 +49,6 @@ Steps:
 └── s3_test_results_coralogix.py       converts local files into s3 objects 
 |  
 |
-└── update_test_results.sh             updates test result data from custom pupeteer youtube search pod both locally and in aws                                           
+└── update_test_results.sh             updates test result data from custom pupeteer pod(s) both locally and in aws                                           
 ```
 
