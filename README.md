@@ -1,13 +1,12 @@
 # CNTF - Pupeteer Tests
 
 ## Purpose
-This source code repository stores the configurations to peform normal user activities (e.g. watching a YouTube video) via a UE connected to the 5G network.
+This source code repository stores the configurations to peform normal user activities (e.g. watching a YouTube video) on a UE connected to the 5G network. This gives insights on how well a 5g core can support normal user activities at a baseline level.
 
 ## Deployment
 Prerequisites:
 
-* *Please ensure that you have configured the AWS CLI to authenticate to an AWS environment where you have adequate permissions to create a cluster, security groups and IAM roles.*
-
+* *Please ensure that you have configured the AWS CLI to authenticate to an AWS environment where you have adequate permissions to create an EKS cluster, security groups and IAM roles.*
 * *Please ensure that the "CNTF-Main" branch has been deployed, as this ensures that the cluster and other necessary AWS infrastructure are available to support the execution of scripts in this repository.*  
 
 Steps:
