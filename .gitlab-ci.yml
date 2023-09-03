@@ -26,7 +26,7 @@ simulate_user_activity:
     - mv kubectl /usr/local/bin/
     - aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME
     - helm repo add openverso https://gradiant.github.io/openverso-charts/
-# install the ueransim helm chart, but using the image we build that includes puppeteer and our test scripts
+# install the ueransim helm chart, but using the custom docker image that includes puppeteer and our test scripts
     - >
       COMMON_LABEL=$(jq -n --arg CI_JOB_ID "${CI_JOB_ID}" --arg SCRIPT "${SCRIPT}" '{"gitlab-job": $CI_JOB_ID, "puppeteer-script": $SCRIPT}')
     - > 
@@ -47,7 +47,7 @@ simulate_user_activity:
         ARTIFACT: youtube_invaders_video.png
       # - SCRIPT: amazon-search
       #   IMSI_ID: 9090909091
-      #   ARTIFACT: 5g_reference_guide.png        # Currently the amazon-search and dev-tools-search feautures are not working.
+      #   ARTIFACT: 5g_reference_guide.png        # The "amazon-search" and "dev-tools-search" scripts are currently not working due to blockers that stop bot activity on these websites.
       # - SCRIPT: devtools-search
       #   IMSI_ID: 9090909092
 
@@ -64,7 +64,7 @@ update_test_results:
     - apk add --no-cache python3 py3-pip jq
     - pip3 install --upgrade pip 
     - pip3 install --no-cache-dir awscli
-    - pip3 install --no-cache-dir boto3  # Install boto3 library for AWS interaction
+    - pip3 install --no-cache-dir boto3  
     - aws --version
     - curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
     - chmod +x kubectl
