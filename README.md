@@ -63,16 +63,13 @@ Steps:
 |
 └── update_test_results.sh             updates test result data from custom pupeteer pod(s) both locally and in aws                                           
 ```
-## Installation guide 
+## Installation Guide 
 
  **Prerequisites**
 
   - Basic knowladge of AWS, Open5Gs and UERANSIM
-
   - AWS account with Open5Gs & UERANSIM deployed 
-
   -  S3 buckets as targets for test results 
-
   - Gitlab account connected to AWS
 
 **Steps**
@@ -85,9 +82,9 @@ Steps:
        - networkRequestsPath
 4. Schedule tests 
 
-## File Docs 
+# File Docs 
 
-### Puppeteer Tests 
+## Puppeteer Tests 
 **Overview** This app has 3 puppeteer tests, (1) youtube-search.js, (2)amazon-search.js, (3) dev-tools.js. Currently, only youtube-search.js is functional, the other tests require developers to contribute to. 
 
 
@@ -111,7 +108,7 @@ We create logs and write them to external files for monitoring the youtube-searc
       - URL
       - single response time
 
-### CI script
+## CI Script
 
 **Overview of CI/CD script:** this script leverages Kaniko to build a Docker image from a provided Dockerfile, using the specified context and configuration for ECR, and then pushes the image to the specified ECR repository with the defined tag.
 
