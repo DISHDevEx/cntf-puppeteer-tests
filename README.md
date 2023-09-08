@@ -52,11 +52,6 @@ Raw data: To view raw data resulting from test runs, please look at the data sto
 └── README.md  
 |
 |
-└── open5gs_values.yml                 these values files contain configurations to customize resources defined in the open5gs & ueransim helm charts
-└── openverso_ueransim_gnb_values.yml                 
-└── openverso_ueransim_ues_values.yml 
-|
-|
 └── youtube-network-requests.txt       stores general data for youtube video running over 5g network locally
 └── youtube-pupeteer-load-time.txt     stores download time for youtube video running over 5g network locally
 └── youtube-pupeteer-screenshot.png    stores screenshot of youtube video running over 5g network locally
