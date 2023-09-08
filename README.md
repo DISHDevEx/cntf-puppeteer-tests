@@ -86,9 +86,9 @@ Raw data: To view raw data resulting from test runs, please look at the data sto
        - networkRequestsPath
 4. Schedule tests 
 
-# File Docs 
+## File Docs 
 
-## Puppeteer Tests 
+### Puppeteer Tests 
 **Overview** This app has 3 puppeteer tests, (1) youtube-search.js, (2)amazon-search.js, (3) dev-tools.js. Currently, only youtube-search.js is functional, the other tests require developers to contribute to. 
 
 
