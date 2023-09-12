@@ -62,6 +62,12 @@ Raw data: To view raw data resulting from test runs, please look at the data sto
 |
 └── update_test_results.sh             updates test result data from custom pupeteer pod(s) both locally and in aws                                           
 ```
+## Gitlab CI
+**Pipeline Stages:**
+* test - creates a ueransim pod with the custom youtube script installed and performs the test while connected to the 5g network
+* update_tests - update test results locally and in AWS
+* cleanup - removes the youtube pod from the eks cluster 
+
 ## Installation Guide 
 
  **Prerequisites**
