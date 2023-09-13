@@ -1,4 +1,4 @@
-# CNTF - Pupeteer Tests
+# CNTF - Puppeteer Tests
 
 ## Purpose
 This source code repository stores the configurations to peform normal user activities (e.g. watching a YouTube video) on a UE connected to the 5G network. This gives insights on how well a 5g core can support normal user activities at a baseline level.
@@ -25,7 +25,7 @@ Steps:
 
 ## Coralogix Dashboards
 To view parsed & visualized data resulting from tests run by various CNTF repositories, please visit CNTF's dedicated Coralogix tenant: https://dish-wireless-network.atlassian.net/wiki/spaces/MSS/pages/509509825/Coralogix+CNTF+Dashboards
-    * Note: *You must have an individual account created by Coralogix to gain access to this tenant.*
+* Note: *You must have an individual account created by Coralogix to gain access to this tenant.*
     
 Steps to view dashboards:
 1. At the top of the page select the dropdown next to "Dashboards"
