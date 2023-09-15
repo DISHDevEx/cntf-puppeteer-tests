@@ -14,8 +14,9 @@ Prerequisites:
 
 
 Steps:
-1. [Mirror](https://docs.gitlab.com/ee/user/project/repository/mirror/) this repository OR connect it [externally](https://docs.gitlab.com/ee/ci/ci_cd_for_external_repos/) to Gitlab 
-2. Set up a private Gitlab runner on the CNTF EKS cluster (***Note:*** *You only need to do this process once, this runner can be used by the other CNTF repositories you execute*):
+1. [Mirror](https://docs.gitlab.com/ee/user/project/repository/mirror/) this repository OR connect it [externally](https://docs.gitlab.com/ee/ci/ci_cd_for_external_repos/) to Gitlab
+2. Perform a "Git clone" of this repository on your local machine 
+3. Set up a private Gitlab runner on the CNTF EKS cluster (***Note:*** *You only need to do this process once, this runner can be used by the other CNTF repositories you execute*):
     * In Gitlab, on the left side of the screen, hover over "settings" and select "CI/CD"
     * Next to "Runners" select "expand"
     * Unselect "Enable shared runners for this project"
@@ -37,7 +38,13 @@ Steps:
     * **How to re-use this runner for other CNTF repositories:**
         * Hover over "Settings" and select "CI/CD"
         * Under "Other available runners", find the runner you have created and select "Enable for this project".
-
+        
+4. Authenticate [Gitlab with AWS](https://docs.gitlab.com/ee/ci/cloud_deployment/)
+5. Run the CI/CD pipeline:
+    * On the left side of the screen click the drop-down arrow next to "Build" and select "Pipelines"
+    * In the top right hand corner select "Run Pipeline"
+    * In the drop-down under "Run for branch name or tag" select the appropriate branch name and click "Run Pipeline"
+    * Once again, click the drop-down arrow next to "Build" and select "Pipelines", you should now see the pipeline being executed
 
 ## Coralogix Dashboards
 To view parsed & visualized data resulting from tests run by various CNTF repositories, please visit CNTF's dedicated Coralogix tenant: https://dish-wireless-network.atlassian.net/wiki/spaces/MSS/pages/509509825/Coralogix+CNTF+Dashboards
