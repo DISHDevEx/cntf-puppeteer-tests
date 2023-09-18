@@ -1,7 +1,8 @@
 # CNTF - Puppeteer Tests
 
 ## Purpose
-This source code repository stores the configurations to peform normal user activities (e.g. watching a YouTube video) on a UE connected to the 5G network. This gives insights on how well a 5g core can support normal user activities at a baseline level.
+
+This source code repository houses the configurations necessary to execute typical user actions, (e.g.  watching YouTube videos, browsing websites, etc.) on a User Equipment (UE) connected to a 5G network. This repository serves as a valuable resource for assessing the performance of a 5G core network in supporting these everyday user activities.
 
 ## Overview
 This app combines [UERANSIM](https://github.com/aligungr/UERANSIM), [Puppeteer](https://github.com/puppeteer), and [Node.js](https://github.com/nodejs) in a Dockerfile to enable the simulation of typical UE (User Equipment) activities like web browsing and video streaming. Developers can easily create custom tests using Puppeteer and run them on UEs via UERANSIM. The application automates the creation of a Docker image with this functionality and includes an out-of-the-box test (youtube-search.js), which is then pushed to AWS ECR with a single build. Beef up UERANSIM with ease! 
