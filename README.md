@@ -11,7 +11,7 @@ This app combines [UERANSIM](https://github.com/aligungr/UERANSIM), [Puppeteer](
 Prerequisites:
 
 * *Please ensure that you have configured the AWS CLI to authenticate to an AWS environment where you have adequate permissions to create an EKS cluster, security groups and IAM roles*: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html
-* *Please ensure that the pipeline in the "CNTF-Main" repository has been successfully deployed, as this ensures that all necessary components are available to support the execution of scripts in this repository.*  
+* *Please ensure that the pipelines in the "CNTF-Main" and "CNTF-Custom-UERANSIM-Docker-Image" repository has been successfully deployed, as this ensures that all necessary components are available to support the execution of scripts in this repository.*  
 
 
 Steps:
@@ -40,7 +40,13 @@ Steps:
         * Hover over "Settings" and select "CI/CD"
         * Under "Other available runners", find the runner you have created and select "Enable for this project"
         
-4. Authenticate [Gitlab with AWS](https://docs.gitlab.com/ee/ci/cloud_deployment/)
+4. Authenticate [Gitlab with AWS](https://docs.gitlab.com/ee/ci/cloud_deployment/):
+   * Inside of the Gitlab repository, hover over "Settings" and select "CI/CD"
+   * Next to "Variables" select "Expand"
+   * Select "Add variable"
+   * Under "Key" type: `AWS_ACCESS_KEY_ID`
+   * Under "Value", enter the value of your AWS Access key
+   * Repeat steps 3-5 for `AWS_SECRET_ACCESS_KEY` and `AWS_SESSION_TOKEN (optional)` with the correct corresponding values
 5. Run the CI/CD pipeline:
     * On the left side of the screen click the drop-down arrow next to "Build" and select "Pipelines"
     * In the top right hand corner select "Run Pipeline"
