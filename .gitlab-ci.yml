@@ -3,7 +3,9 @@ stages:
   - update_tests
   - cleanup
 
-# Note: After this first stage has completed, the pipeline will return this error: "WARNING: youtube_invaders_video.png: no matching files. Ensure that the artifact path is relative to the working directory". Ignore this error, as this stage is completing its intended purpose.
+# Note: After the first stage of the pipeline has completed, the pipeline will return this error: "WARNING: youtube_invaders_video.png: no matching files. Ensure that the artifact path is relative to the working directory". Ignore this error, as this stage is completing its intended purpose.
+
+# If you have successfully set up an AWS ECR repository and stored the custom ueransim-puppeteer docker image there, please change line 37 to reflect the correct URI value for "image.registry" and the name of the repository for "image.repository" (example of AWS ECR configuration: --set image.registry=018300759195.dkr.ecr.us-east-1.amazonaws.com --set image.repository=cntf-ueransim-puppeteer \).
 simulate_user_activity:
   allow_failure: true
   image:
@@ -32,7 +34,7 @@ simulate_user_activity:
     - > 
       helm -n openverso upgrade --install ueransim-ues-puppeteer-${SCRIPT}  openverso/ueransim-ues \
         --set ues.initialMSISDN="${IMSI_ID}"   \
-        --set image.registry=018300759195.dkr.ecr.us-east-1.amazonaws.com --set image.repository=cntf-ueransim-puppeteer \
+        --set image.registry="" --set image.repository=cntf1/ueransim-puppeteer \
         --set-json commonLabels="${COMMON_LABEL}" \
         --set-json podLabels="${COMMON_LABEL}" \
         --values https://raw.githubusercontent.com/DISHDevEx/napp/main/napp/open5gs_values/gnb_ues_values.yaml
@@ -50,6 +52,8 @@ simulate_user_activity:
       #   ARTIFACT: 5g_reference_guide.png        # The "amazon-search" and "dev-tools-search" scripts are currently not working due to blockers that stop bot activity on these websites.
       # - SCRIPT: devtools-search
       #   IMSI_ID: 9090909092
+
+# Update test results locally and in AWS 
 
 update_test_results:
   allow_failure: true
@@ -71,9 +75,11 @@ update_test_results:
     - mv kubectl /usr/local/bin/
     - aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME
     - helm repo add openverso https://gradiant.github.io/openverso-charts/
-    - python3 ./s3_test_results_coralogix.py # converts over5g.json & overinternet.json files into objects in an S3 bucket
+    - python3 ./s3_test_results_coralogix.py 
     - sh ./update_test_results.sh
-   
+
+# Delete the ueransim-puppeteer pod from the cluster
+
 puppeteer-cleanup:
   image:
     name: alpine/helm
@@ -82,7 +88,7 @@ puppeteer-cleanup:
     REGION: us-east-1
     CLUSTER_NAME: cntf-open5gs-cluster
   needs: 
-    - simulate_user_activity
+    - simulate_user_activity 
     - update_test_results
   stage: cleanup
   environment:
@@ -107,4 +113,5 @@ puppeteer-cleanup:
           # - devtools-search
   rules:
     - when: always
+ 
     
