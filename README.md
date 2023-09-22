@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This source code repository houses the configurations necessary to execute typical user actions, (e.g.  watching YouTube videos, browsing websites, etc.) on a User Equipment (UE) connected to a 5G network. This repository serves as a valuable resource for assessing the performance of a 5G core network in supporting these everyday user activities.
+This source code repository houses the configurations necessary to execute typical user actions, (e.g.  watching YouTube videos, browsing websites, etc.) on a User Equipment (UE) device connected to a 5G network. This repository serves as a valuable resource for assessing the performance of a 5G core network in supporting these everyday user activities.
 
 ## Overview
 This app combines [UERANSIM](https://github.com/aligungr/UERANSIM), [Puppeteer](https://github.com/puppeteer), and [Node.js](https://github.com/nodejs) in a Dockerfile to enable the simulation of typical UE (User Equipment) activities like web browsing and video streaming. Developers can easily create custom tests using Puppeteer and run them on UEs via UERANSIM. The application automates the creation of a Docker image with this functionality and includes an out-of-the-box test (youtube-search.js), which is then pushed to AWS ECR with a single build. Beef up UERANSIM with ease! 
@@ -15,7 +15,7 @@ Prerequisites:
 
 
 Steps:
-1. [Mirror](https://docs.gitlab.com/ee/user/project/repository/mirror/) this repository OR connect it [externally](https://docs.gitlab.com/ee/ci/ci_cd_for_external_repos/) to Gitlab
+1. Create a fork of this repository and [Import](https://docs.gitlab.com/ee/user/project/import/github.html) it into Gitlab 
 2. Perform a "Git clone" of this repository on your local machine 
 3. Set up a private Gitlab runner on the CNTF EKS cluster (***Note:*** *You only need to do this process once, this runner can be used by the other CNTF repositories you execute*):
     * In Gitlab, on the left side of the screen, hover over "settings" and select "CI/CD"
